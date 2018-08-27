@@ -27,7 +27,7 @@ router.get('/', function (req,res){
 });
 
 router.get('/:location',function (req,res){
-    Event.findByLocation(req.params.location, req.body, {new: true},
+    Event.findByLocation(req.params.location,
         function (err,event){
             if(err) return res.status(500).send("Something went wrong.");
             if(!event) return res.status(404).send("No Event found");
