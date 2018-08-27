@@ -21,7 +21,7 @@ router.post('/', function(req, res){
 
 router.get('/', function (req,res){
         Event.find({},function(err,events){
-            if (err) return res.status(500).send("There was a Problem finding events.");
+            if (err) return res.status(500).send("There was a problem finding events.");
             res.status(200).send(events);
         });
 });
@@ -30,7 +30,7 @@ router.get('/:location',function (req,res){
     Event.findByLocation(req.params.location,
         function (err,event){
             if(err) return res.status(500).send("Something went wrong.");
-            if(!event) return res.status(404).send("No Event found");
+            if(!event) return res.status(404).send("No event found");
             res.status(200).send(event);
     });
 });
